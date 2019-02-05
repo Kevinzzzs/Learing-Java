@@ -1,0 +1,40 @@
+package com.company.calEngine;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        double [] leftvals = {15.0d, 22.1d, 10.0d, 55.54d};
+        double [] rightvals = {11.40d, 10.29d, 1.22d, 19.00d};
+        char [] opcodes = {'a', 'b','c', 'd'};
+        double [] results = new double[opcodes.length];
+
+        for(int i = 0; i < opcodes.length; i++){
+
+            switch(opcodes[i]){
+                case 'a':
+                    results[i] = leftvals[i] + rightvals[i];
+                    break;
+                case 'b':
+                    results[i] = leftvals[i] - rightvals[i];
+                    break;
+                case 'c':
+                    results[i] = rightvals[i] != 0 ? leftvals[i] / rightvals[i] : 0.0d;
+                    break;
+                case 'd':
+                    results[1] = leftvals[i] * rightvals[i];
+                    break;
+                default:
+                    System.out.println("Error - Invalid opCode");
+                    results[i] = 0.0d;
+                    break;
+
+            }for(double theResult : results)
+                System.out.println(theResult);
+
+        }
+
+
+        }
+    }
+
