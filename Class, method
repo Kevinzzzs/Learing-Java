@@ -1,0 +1,62 @@
+package com.company.calEngine;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        MathEquation[] equations = new MathEquation[4];
+        equations[0] = create(15.0d, 11.4, 'a');
+        equations[1] = create(22.1, 10.29d, 'b');
+        equations[2] = create(10.0d, 1.22d, 'c');
+        equations[3] = create(55.54d, 19.00d, 'd');
+
+
+        for (MathEquation equation : equations) {
+            equation.execute();
+            System.out.println(equation.results);
+        }
+    }
+        public static MathEquation create ( double leftvals, double rightvals, char opcodes){
+            MathEquation equation = new MathEquation();
+            equation.leftvals = leftvals;
+            equation.rightvals = rightvals;
+            equation.opcodes = opcodes;
+
+            return equation;
+        }
+    }
+
+
+
+
+package com.company.calEngine;
+
+public class MathEquation {
+    public double leftvals;
+    public double rightvals;
+    public char opcodes;
+    public double results;
+
+    public void execute() {
+        switch (opcodes) {
+            case 'a':
+                results = leftvals + rightvals;
+                break;
+            case 'b':
+                results = leftvals - rightvals;
+                break;
+            case 'c':
+                results = rightvals != 0 ? leftvals / rightvals : 0.0d;
+                break;
+            case 'd':
+                results = leftvals * rightvals;
+                break;
+            default:
+                System.out.println("Error - Invalid opCode");
+                results = 0.0d;
+                break;
+
+        }
+    }
+}
